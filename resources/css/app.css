@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*Efecto sombra blanca Logo abreviado oscuro*/
+/* .glow-effect {
+    filter: drop-shadow(-1px 1px 0 rgba(255, 255, 255, 0.8));
+    transition: filter 0.3s ease-in-out;
+} */
+
+/*Color letras logo*/
+.colorText {
+    color: #D7E9F4;
+}
+  
+
+/* Animación Palabras Servicios del componente HeroSection */
+@keyframes carousel {
+    0% {
+      transform: translateY(0%); /* Primera palabra */
+    }
+    16.67% {
+        transform: translateY(0%); /* Pausa en la primera palabra */
+    }
+    33.33% {
+        transform: translateY(-17%); /* Segunda palabra */
+    }
+    50% {
+        transform: translateY(-17%); /* Pausa la segunda palabra */
+    }
+    66.67% {
+        transform: translateY(-34%); /* Tercera palabra */
+    }
+    83.33% {
+        transform: translateY(-34%); /* Pausa en la tercera palabra */
+    }
+    100% {
+      transform: translateY(-50%); /* Mueve hacia arriba hasta la mitad del contenido */
+    }
+}
+.animate-carousel {
+    animation: carousel linear infinite;
+}
+
+
+/*Estilos Carousel del componente Carousel*/
+.carousel-container {
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;  /* Ocultar barra de scroll en IE y Edge */
+    scrollbar-width: none;     /* Ocultar barra de scroll en Firefox */
+}
+.carousel-container::-webkit-scrollbar {
+    display: none;  /* Ocultar barra de scroll en Chrome, Safari y Opera */
+}
+
+
+/*Estilos Svg Animado del componente AboutUs*/
+@keyframes fly {
+    0% {
+      transform: translate(70px, 100px) scale(0.7) rotate(45deg);
+    }
+    100% {
+      transform: translate(170px, 20px) scale(0.7) rotate(45deg);
+    }
+}
+  
+@keyframes drawPath {
+    from {
+      stroke-dashoffset: 300;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+}
+  
+@keyframes grow1 {
+    0% {
+      height: 0;
+      transform: translateY(150px);
+    }
+    100% {
+      height: 100px;
+      transform: translateY(0);
+    }
+}
+
+@keyframes grow2 {
+    0% {
+      height: 0;
+      transform: translateY(200px);
+    }
+    100% {
+      height: 150px;
+      transform: translateY(-25px);
+    }
+}
+
+@keyframes grow3 {
+    0% {
+      height: 0;
+      transform: translateY(250px);
+    }
+    100% {
+      height: 200px;
+      transform: translateY(-50px);
+    }
+}
+  
+@keyframes twinkle {
+    0%, 100% {
+      opacity: 0.6;
+    }
+    50% {
+      opacity: 1;
+    }
+}
+  
+/* Trayectoria del cohete */
+.animate-drawPath {
+    animation: drawPath 3s linear forwards;
+}
+  
+/* Movimiento del cohete */
+.animate-fly {
+    animation: fly 3s ease-in-out forwards;
+}
+  
+/* Animaciones de las barras */
+.animate-bar1 {
+    animation: grow1 3s ease-in-out forwards;
+}
+  
+.animate-bar2 {
+    animation: grow2 3s ease-in-out forwards;
+}
+  
+.animate-bar3 {
+    animation: grow3 3s ease-in-out forwards;
+}
+  
+/* Estrellas parpadeantes */
+.animate-twinkle {
+    animation: twinkle 1.5s infinite ease-in-out;
+}
