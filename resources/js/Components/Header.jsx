@@ -66,6 +66,19 @@ export default function Header() {
     smoothScrollTo(id,num);
   };
 
+  //Función botón Whatsapp
+  const phoneNumber = "+541130437703";
+  const handleWhatsappClick = () => {
+    const whatsappURL = `https://wa.me/${phoneNumber}`;
+    window.open(whatsappURL, "_blank");
+  };
+
+  /*const phoneNumber = "1130437703";
+  const handleWhatsappClick = () => {
+    const whatsappURL = `https://web.whatsapp.com/send?phone=${phoneNumber}`;
+    window.open(whatsappURL, "_blank");
+  };*/
+
   return (
     <>
     <header
@@ -255,17 +268,68 @@ export default function Header() {
       </div>
     </header>
 
-    {/* Botón Scroll to Top */}
+    {/* Botón WhatsApp (Se adapta a mobile) */}
+    <motion.button className="fixed bottom-4 right-5 md:right-6 z-50"
+         animate={{ scale: [1, 1.1, 1] }}  // Efecto de titileo (pulsación)
+         transition={{ duration: 2, repeat: Infinity, repeatType: "mirror" }}
+    >
+      <button
+        onClick={handleWhatsappClick}
+        className="bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg flex items-center justify-center transition-transform transform hover:scale-105 drop-shadow-[0_0_1px_rgba(255,255,255,1)] w-13 h-13 md:w-14 md:h-14"  // Ajusta tamaños en mobile y desktop
+            aria-label="Contactar por WhatsApp"
+        >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-6 h-6 md:w-7 md:h-7"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path d="M20.52 3.47A11.84 11.84 0 0012 0a12 12 0 00-10.3 17.86L0 24l6.26-1.64A12 12 0 0012 24a11.84 11.84 0 008.48-3.48A12 12 0 0024 12a11.84 11.84 0 00-3.48-8.53zM12 22a10 10 0 01-5.36-1.5L3.6 21.6l1.1-3A9.95 9.95 0 012 12 10 10 0 1112 22zm4.71-7.94c-.26-.13-1.55-.76-1.79-.85s-.42-.13-.6.13-1 1.17-1.23 1.42-.45.2-.71.07a8.39 8.39 0 01-2.47-1.53 9.18 9.18 0 01-1.68-2.1c-.17-.3 0-.47.13-.6s.3-.34.45-.51.2-.26.3-.43.05-.32-.02-.45-.6-1.43-.83-1.95a.5.5 0 00-.43-.27c-.11 0-.23 0-.35.06a1.35 1.35 0 00-.59.46 2.56 2.56 0 00-.62 1.24 4.44 4.44 0 00.93 2.25A19.1 19.1 0 009.3 14.8a21.36 21.36 0 004.36 2.33 3.73 3.73 0 001.74.47 3.2 3.2 0 001.07-.23 2.53 2.53 0 001.3-1.1 2.1 2.1 0 00.15-1.17c-.06-.09-.24-.15-.5-.28z" />
+        </svg>
+      </button>
+    </motion.button>    
+
+    {/* Botón Whatsapp */}    
+    {/* <div className="fixed bottom-4 right-5 z-50">
+      <button
+        onClick={handleWhatsappClick}
+        className="bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg flex items-center justify-center transition-transform transform hover:scale-105"
+        aria-label="Contactar por WhatsApp"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path d="M20.52 3.47A11.84 11.84 0 0012 0a12 12 0 00-10.3 17.86L0 24l6.26-1.64A12 12 0 0012 24a11.84 11.84 0 008.48-3.48A12 12 0 0024 12a11.84 11.84 0 00-3.48-8.53zM12 22a10 10 0 01-5.36-1.5L3.6 21.6l1.1-3A9.95 9.95 0 012 12 10 10 0 1112 22zm4.71-7.94c-.26-.13-1.55-.76-1.79-.85s-.42-.13-.6.13-1 1.17-1.23 1.42-.45.2-.71.07a8.39 8.39 0 01-2.47-1.53 9.18 9.18 0 01-1.68-2.1c-.17-.3 0-.47.13-.6s.3-.34.45-.51.2-.26.3-.43.05-.32-.02-.45-.6-1.43-.83-1.95a.5.5 0 00-.43-.27c-.11 0-.23 0-.35.06a1.35 1.35 0 00-.59.46 2.56 2.56 0 00-.62 1.24 4.44 4.44 0 00.93 2.25A19.1 19.1 0 009.3 14.8a21.36 21.36 0 004.36 2.33 3.73 3.73 0 001.74.47 3.2 3.2 0 001.07-.23 2.53 2.53 0 001.3-1.1 2.1 2.1 0 00.15-1.17c-.06-.09-.24-.15-.5-.28z" />
+        </svg>
+      </button>
+    </div>   */}  
+
+    {/* Botón Scroll to Top (Se adapta a mobile) */}
     <motion.button
-        className="fixed bottom-6 right-6 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-800 transition duration-300 z-50 drop-shadow-[0_0_1px_rgba(255,255,255,1)]"
+        className="fixed bottom-20 right-6 md:right-7 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-800 transition duration-300 z-50 drop-shadow-[0_0_1px_rgba(255,255,255,1)] w-10 h-10 md:w-12 md:h-12 flex items-center justify-center"
         onClick={scrollToTop}
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: showScrollTop ? 1 : 0, y: showScrollTop ? 0 : 50 }}
         transition={{ duration: 0.4 }}
         style={{ pointerEvents: showScrollTop ? "auto" : "none" }}
-        >
-        <ArrowUp size={24} />
+    >
+        <ArrowUp size={24} className="md:w-7 md:h-7" />
     </motion.button>
+
+    {/* Botón Scroll to Top */}
+    {/* <motion.button
+      className="fixed bottom-20 right-6 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-800 transition duration-300 z-50 drop-shadow-[0_0_1px_rgba(255,255,255,1)]"
+      onClick={scrollToTop}
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: showScrollTop ? 1 : 0, y: showScrollTop ? 0 : 50 }}
+      transition={{ duration: 0.4 }}
+      style={{ pointerEvents: showScrollTop ? "auto" : "none" }}
+    >
+      <ArrowUp size={24} />
+    </motion.button> */}
   </>
   );
 }

@@ -16,7 +16,7 @@ class ContactController extends Controller
             'message' => 'required|string|min:10|max:5000',
         ]);
 
-        $to = env('MAIL_TO_ADDRESS', 'lcravenna@unionferroviaria.org.ar');
+        $to = env('MAIL_TO_ADDRESS', 'consultas@kreatit.com.ar');
         $subject = 'Nueva consulta';
         $body = view('emails.contact', ['data' => $request->all()])->render();
 
